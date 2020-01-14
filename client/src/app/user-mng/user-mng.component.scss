@@ -1,0 +1,25 @@
+.container {
+  padding: 10px;
+  .btn-secondary {
+      margin-bottom:10px;
+  }
+  .row { 
+   > * {
+    height: 60px;
+    border: 1px solid #c9c9c9;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis
+  }    
+  .col-hdr {
+    color: blue;
+  } 
+ }
+  .btn {
+    margin-right: 5px;
+  }
+}
+
+.modal-xl .modal-lg {
+    width: 80vw;
+  }

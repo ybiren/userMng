@@ -1,0 +1,30 @@
+<div class="container">
+ <div cass="row add-user">
+     <div class="col">
+      <div class="btn-group btn-group-sm"> 
+      <button class="btn btn-secondary" (click)="insertUser()">Add User</button>
+      </div> 
+    </div>
+ </div> 
+ <div class="row">
+   <div class="col-1 col-hdr d-flex justify-content-center align-items-center">#</div>
+   <div class="col-2 col-hdr d-flex justify-content-center align-items-center">First Name</div>
+   <div class="col-2 col-hdr d-flex justify-content-center align-items-center">Last Name</div> 
+   <div class="col-3 col-hdr d-flex justify-content-center align-items-center">Email</div>  
+   <div class="col-1 col-hdr d-flex justify-content-center align-items-center">Age</div>  
+   <div class="col-3 col-hdr d-flex justify-content-center align-items-center">Actions</div>
+  </div> 
+ <div class="row d-flex align-items-center" *ngFor="let user of users;let ind = index">
+   <div class="col-1 d-flex justify-content-center align-items-center">{{ind + 1}}</div>
+   <div class="col-2 d-flex align-items-center">{{user.pname}}</div>
+   <div class="col-2 d-flex align-items-center">{{user.fname}}</div> 
+   <div class="col-3 d-flex align-items-center">{{user.email}}</div>  
+   <div class="col-1 d-flex justify-content-center align-items-center">{{user.age}}</div>  
+   <div class="col-3 d-flex justify-content-center align-items-center">
+     <div class="btn-group btn-group-sm">
+     <button (click)="updateUser(user)" class="btn btn-success">Update</button>
+     <button (click)="deleteUser(user)" class="btn btn-danger">Delete</button>
+     </div>
+  </div>
+</div>    
+</div>    

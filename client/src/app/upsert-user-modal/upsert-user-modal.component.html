@@ -1,0 +1,54 @@
+<div class="modal-header">
+  <h3 class="modal-title">{{dialogHeaderTxt}}</h3>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form  #heroForm="ngForm"  class="needs-validation" novalidate>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="txtFirstName">First name</label>
+            <input type="text" name="pname" class="form-control" id="txtFirstName" #pname="ngModel" 
+                   [(ngModel)]="user.pname"  placeholder="Enter first name" required>
+          <div class="form-error" *ngIf="pname.errors && pname.errors.required">First name is required</div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="txtLastName">Last name</label>
+            <input type="text" name="fname" class="form-control" id="txtLastName" #fname="ngModel" 
+                   [(ngModel)]="user.fname" placeholder="Enter last name" required>
+          <div class="form-error" *ngIf="fname.errors && fname.errors.required">Last name is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-6">
+        <div class="form-group">
+          <label for="txtEmail">Email</label>
+            <input type="email" name="email" class="form-control" id="txtEmail" #email="ngModel" 
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  [(ngModel)]="user.email" placeholder="Enter email" required>
+            <div class="form-error" *ngIf="email.errors && email.errors.required">Email is required</div>
+            <div class="form-error" *ngIf="email.errors && email.errors.pattern">Email must be a valid email address</div>
+        </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label for="txtAge">Age</label>
+        <input type="number" name="age" min="0" class="form-control" id="txtAge" #age="ngModel" 
+               [(ngModel)]="user.age" placeholder="Enter age" required>
+        <div class="form-error" *ngIf=" age.errors && age.errors.required">Age is required</div>
+      </div>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col d-flex justify-content-center">
+      <button [disabled]="!heroForm.form.valid"  type="submit" (click)="doUpsert()" class="btn btn-primary">
+        {{dialogHeaderTxt}}
+      </button>
+     </div>
+    </div>
+   </form>
+</div>
