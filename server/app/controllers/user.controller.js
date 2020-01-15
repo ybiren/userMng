@@ -13,10 +13,12 @@ function insertIntoMongoDB(req,res) {
     user.age = req.body.age;
     user.email = req.body.email;
     user.save((err, doc) => {
-      if (!err)
+      if (!err) {
         res.send(req.body);
-      else
+      } else {
         console.log('Error during record insertion : ' + err);
+        res.status(500).json(err.message);
+      }
     });
  }
 
@@ -26,6 +28,7 @@ function insertIntoMongoDB(req,res) {
         res.send(req.body);
      } else {
         console.log('Error during updating the record: ' + err);
+        res.status(500).json(err.message); 
      }
    });
  }
@@ -36,6 +39,7 @@ function insertIntoMongoDB(req,res) {
          res.send(req.body);
       } else {
          console.log('Error during delete the record: ' + err);
+         res.status(500).json(err.message);
       }
    });
  }
@@ -57,7 +61,8 @@ exports.findAll = (req, res) => {
     if(!err){
       res.send(docs);
     } else {
-        console.log('Failed to retrieve the Course List: '+ err);
+        console.log('Failed to retrieve the User List: '+ err);
+        res.status(500).json(err.message);
       }
   });
 };
