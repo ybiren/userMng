@@ -1,8 +1,22 @@
-.form-group {
-    .form-error{
-        color:red;
-    }
-}
-.modal-dialog{
-    color: green;
+.modal-dialog {
+  padding: 0 20px;
+  .modal-title {
+    line-height: 33px;
   }
+  .modal-body {
+    font-size: 16px;
+    .form-group {
+     .form-error{
+       padding-top: 5px;
+       color:red;
+     }
+     .form-control {
+       font-size: 16px;
+       width: 400px; 
+     }
+  }
+ }
+ .btn {
+   font-size: 18px;
+ }
+}

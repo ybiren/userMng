@@ -20,7 +20,7 @@ export class UserMngComponent implements OnInit {
   }
 
   updateUser(user: IUser){
-    const modalRef = this.modalService.open(UpsertUserModalComponent, {centered: true, backdrop: 'static', size:'lg'});
+    const modalRef = this.modalService.open(UpsertUserModalComponent, {centered: true, backdrop: 'static'});
     modalRef.componentInstance.user = Object.assign({}, user);
     modalRef.result.then((user: IUser) => {
       this.svc.UpdateUser(user).pipe(take(1)).subscribe(()=> {
@@ -31,7 +31,7 @@ export class UserMngComponent implements OnInit {
   }
 
   insertUser() {
-    const modalRef = this.modalService.open(UpsertUserModalComponent, {centered: true, backdrop: 'static', size: 'lg'});
+    const modalRef = this.modalService.open(UpsertUserModalComponent, {centered: true, backdrop: 'static'});
     const newUser: IUser = {_id: null, pname: "",fname: "", age:0, email:""};
     modalRef.componentInstance.user = newUser;
     modalRef.result.then((user: IUser) => {

@@ -1,3 +1,6 @@
+<div id="myDialog"  tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
 <div class="modal-header">
   <h3 class="modal-title">{{dialogHeaderTxt}}</h3>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
@@ -7,7 +10,7 @@
 <div class="modal-body">
   <form  #heroForm="ngForm"  class="needs-validation" novalidate>
     <div class="row">
-      <div class="col-6">
+      <div class="col-12">
         <div class="form-group">
           <label for="txtFirstName">First name</label>
             <input type="text" name="pname" class="form-control" id="txtFirstName" #pname="ngModel" 
@@ -15,7 +18,7 @@
           <div class="form-error" *ngIf="pname.errors && pname.errors.required">First name is required</div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-12">
         <div class="form-group">
           <label for="txtLastName">Last name</label>
             <input type="text" name="fname" class="form-control" id="txtLastName" #fname="ngModel" 
@@ -25,7 +28,7 @@
       </div>
     </div>
     <div class="row"> 
-      <div class="col-6">
+      <div class="col-12">
         <div class="form-group">
           <label for="txtEmail">Email</label>
             <input type="email" name="email" class="form-control" id="txtEmail" #email="ngModel" 
@@ -34,7 +37,7 @@
             <div class="form-error" *ngIf="email.errors && email.errors.pattern">Email must be a valid email address</div>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-12">
       <div class="form-group">
         <label for="txtAge">Age</label>
         <input type="number" name="age" min="0" class="form-control" id="txtAge" #age="ngModel" 
@@ -51,4 +54,7 @@
      </div>
     </div>
    </form>
+</div>
+</div>
+</div>
 </div>
