@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { UserMngComponent } from './user-mng/user-mng.component';
 import { UpsertUserModalComponent } from './upsert-user-modal/upsert-user-modal.component';
@@ -17,7 +19,14 @@ import { UpsertUserModalComponent } from './upsert-user-modal/upsert-user-modal.
     BrowserModule,
     HttpClientModule,
     NgbModalModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      closeButton: false,
+      positionClass: 'toast-top-full-width',
+      preventDuplicates: true,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

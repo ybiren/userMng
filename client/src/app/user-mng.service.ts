@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IUser } from './interfaces/user';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import {catchError} from 'rxjs/operators'; 
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class UserMngService {
   private url = "http://localhost:3000/users"
  
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toast: ToastrService) { }
 
   public GetUsers():Observable<IUser[]> {
     return this.http.get<IUser[]>(this.url).pipe(catchError(this.handleError.bind(this)));
@@ -37,7 +38,7 @@ export class UserMngService {
     return this.http.delete(this.url, options).pipe(catchError(this.handleError.bind(this)));
   }
 
-   private handleError() {
-     alert("An error as occured");
+   private handleError(error: HttpErrorResponse) {
+     this.toast.error(`${error.message}`,'Error');
    }
 }
